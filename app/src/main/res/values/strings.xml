@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AirlineTicketBooking</string>
+    <string name="airline_ticket_booking">Airline Ticket Booking</string>
 </resources>
