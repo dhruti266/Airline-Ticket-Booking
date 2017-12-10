@@ -27,8 +27,21 @@ public class ATBContract {
     public static class Flight implements BaseColumns{
         public static final String _ID = BaseColumns._ID;
         public static final String TABLE_NAME = "Flight";
+        public static final String  COLUMN_NAME_FLIGHT_NAME = "flight_name";
+        public static final String  COLUMN_NAME_FLIGHT_NUMBER = "flight_number";
+        public static final String  COLUMN_NAME_ORIGIN = "origin";
+        public static final String  COLUMN_NAME_DESTINATION = "destination";
+        public static final String  COLUMN_NAME_DEPARTURE_DATE = "departure_date";
+        public static final String  COLUMN_NAME_ARRIVAL_DATE = "arrival_date";
+        public static final String  COLUMN_NAME_TOTAL_COST = "total_cost";
+        public static final String  COLUMN_NAME_TOTAL_TIME = "total_time";
+    }
+
+    public static class BookingInfo implements BaseColumns{
+        public static final String _ID = BaseColumns._ID;
+        public static final String TABLE_NAME = "BookingInfo";
         public static final String  COLUMN_NAME_USER_ID = "user_id";
-        public static final String  COLUMN_NAME_FLIGHT_INDEX = "flight_index";
+        public static final String  COLUMN_NAME_FLIGHT_ID = "flight_id";
     }
 
 }
