@@ -42,7 +42,7 @@ public class HomeActivity extends Activity {
     private ArrayList<String> arrayList;
     private ArrayAdapter<String> adapter;
     private ArrayList<Integer> idList;
-    String email;
+    private String email;
     int userId;
 
     Calendar myCal;
@@ -73,7 +73,7 @@ public class HomeActivity extends Activity {
         myHelper = new ATBDbHelper(HomeActivity.this);
         myDb = myHelper.getWritableDatabase();
 
-        Intent i = getIntent();
+        final Intent i = getIntent();
         email = i.getStringExtra("email");
         Cursor userInfo = null;
         userInfo = myDb.rawQuery("SELECT * FROM " + User.TABLE_NAME
@@ -165,10 +165,20 @@ public class HomeActivity extends Activity {
                             Intent intent = new Intent(HomeActivity.this, BookItineraryActivity.class);
                             intent.putExtra("flightId", idList.get(position));
                             intent.putExtra("userId", userId);
+                            intent.putExtra("hideBook", "no");
                             startActivity(intent);
                         }
                     });
                 }
+            }
+        });
+
+        btnViewFlights.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), BookedFlightActivity.class);
+                intent.putExtra("user_email", i.getStringExtra("email"));
+                startActivity(intent);
             }
         });
     }

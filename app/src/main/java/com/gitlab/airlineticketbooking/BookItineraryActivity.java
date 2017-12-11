@@ -15,12 +15,15 @@ import android.widget.Toast;
 import com.gitlab.airlineticketbooking.data.ATBContract;
 import com.gitlab.airlineticketbooking.data.ATBDbHelper;
 
+import java.util.Objects;
+
 
 public class BookItineraryActivity extends Activity {
 
-    private TextView bookingInfo;
+    private TextView bookingInfo, pageTitle;
     private Button btnBook;
     int flightId, userId;
+    String hideBookBtn;
     ATBDbHelper myHelper;
     SQLiteDatabase myDb;
     @Override
@@ -29,11 +32,13 @@ public class BookItineraryActivity extends Activity {
         setContentView(R.layout.activity_book_itinerary);
 
         bookingInfo = (TextView)findViewById(R.id.txtBookingInfo);
+        pageTitle = (TextView)findViewById(R.id.txtBookItinerary) ;
         btnBook = (Button)findViewById(R.id.btnBook);
 
         Intent intent  = getIntent();
         flightId = intent.getIntExtra("flightId", 0);
         userId = intent.getIntExtra("userId", 0);
+        hideBookBtn = intent.getStringExtra("hideBook");
 
         myHelper = new ATBDbHelper(BookItineraryActivity.this);
         myDb = myHelper.getWritableDatabase();
@@ -56,6 +61,10 @@ public class BookItineraryActivity extends Activity {
             }
         }
 
+        if(Objects.equals(hideBookBtn, "yes")){
+            pageTitle.setText("Your Ticket");
+            btnBook.setVisibility(View.GONE);
+        }
         btnBook.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {

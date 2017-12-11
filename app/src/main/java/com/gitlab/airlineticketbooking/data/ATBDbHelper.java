@@ -11,10 +11,11 @@ import com.gitlab.airlineticketbooking.data.ATBContract.BookingInfo;
 public class ATBDbHelper extends SQLiteOpenHelper{
 
     private static final String DATABASE_NAME = "atb.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 4;
 
     public ATBDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
@@ -41,6 +42,7 @@ public class ATBDbHelper extends SQLiteOpenHelper{
                 + Flight.COLUMN_NAME_ARRIVAL_DATE + " TEXT NOT NULL, "
                 + Flight.COLUMN_NAME_TOTAL_COST + " REAL NOT NULL, "
                 + Flight.COLUMN_NAME_TOTAL_TIME + " TEXT NOT NULL); ";
+        db.execSQL(SQL_CREATE_FLIGHT_TABLE);
 
         // create statement for Booking info table
         String SQL_CREATE_BOOKING_INFO_TABLE = "CREATE TABLE " + BookingInfo.TABLE_NAME + "("
@@ -53,26 +55,6 @@ public class ATBDbHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-
-        // create statement for flight table
-        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE " + Flight.TABLE_NAME + "("
-                + Flight._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + Flight.COLUMN_NAME_FLIGHT_NAME + " TEXT NOT NULL, "
-                + Flight.COLUMN_NAME_FLIGHT_NUMBER + " TEXT NOT NULL, "
-                + Flight.COLUMN_NAME_ORIGIN + " TEXT NOT NULL, "
-                + Flight.COLUMN_NAME_DESTINATION + " TEXT NOT NULL, "
-                + Flight.COLUMN_NAME_DEPARTURE_DATE + " TEXT NOT NULL, "
-                + Flight.COLUMN_NAME_ARRIVAL_DATE + " TEXT NOT NULL, "
-                + Flight.COLUMN_NAME_TOTAL_COST + " REAL NOT NULL, "
-                + Flight.COLUMN_NAME_TOTAL_TIME + " TEXT NOT NULL); ";
-
-        // create statement for Booking info table
-        String SQL_CREATE_BOOKING_INFO_TABLE = "CREATE TABLE " + BookingInfo.TABLE_NAME + "("
-                + BookingInfo._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + BookingInfo.COLUMN_NAME_USER_ID + " INTEGER NOT NULL, "
-                + BookingInfo.COLUMN_NAME_FLIGHT_ID + " INTEGER NOT NULL); ";
-        db.execSQL(SQL_CREATE_BOOKING_INFO_TABLE);
-
 
     }
 }

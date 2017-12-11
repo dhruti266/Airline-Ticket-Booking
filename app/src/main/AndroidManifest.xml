@@ -24,7 +24,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".BookItineraryActivity"></activity>
+        <activity android:name=".BookItineraryActivity" />
+        <activity android:name=".BookedFlightActivity"></activity>
     </application>
 
 </manifest>
