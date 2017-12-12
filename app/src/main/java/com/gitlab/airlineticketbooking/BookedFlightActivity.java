@@ -70,7 +70,7 @@ public class BookedFlightActivity extends Activity {
                     if(userFlightDetail.getCount() != 0){
                         while ((userFlightDetail.moveToNext())){
                             // adds data to listview
-                            idList.add(userBookedFlight.getInt(0));
+                            idList.add(userFlightDetail.getInt(0));
                             arrayList.add(userFlightDetail.getString(1) + userFlightDetail.getString(2)
                                     + " : " + userFlightDetail.getString(3) + " - " + userFlightDetail.getString(4)
                                     + " - " + userFlightDetail.getString(5));
