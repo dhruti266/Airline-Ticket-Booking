@@ -181,6 +181,15 @@ public class HomeActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, EditProfileActivity.class);
+                intent.putExtra("user_email", i.getStringExtra("email"));
+                startActivity(intent);
+            }
+        });
     }
 
     // adds the selected date from date picker to departure date editText
