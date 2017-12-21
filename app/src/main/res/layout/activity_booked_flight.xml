@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Your Booked Flights List:"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textSize="30dp"/>
 
     <ListView
         android:id="@+id/booked_flight_booked_flight_lv"
