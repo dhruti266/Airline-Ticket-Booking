@@ -19,6 +19,7 @@ import com.gitlab.airlineticketbooking.data.ATBDbHelper;
 
 import java.util.ArrayList;
 
+//list all the booked flight by user
 public class BookedFlightActivity extends Activity {
 
     private String email;
@@ -62,6 +63,7 @@ public class BookedFlightActivity extends Activity {
             bookedFlightList.setAdapter(adapter);
             adapter.clear();
 
+            //gets the username ands flight details of the logged in user and shows in the listview
             if (userBookedFlight.getCount() != 0) {
                 while (userBookedFlight.moveToNext()) {
                     Cursor userFlightDetail = null;
@@ -84,6 +86,7 @@ public class BookedFlightActivity extends Activity {
 
             }
 
+            //on listview click, opens the ticket menu activity
             bookedFlightList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

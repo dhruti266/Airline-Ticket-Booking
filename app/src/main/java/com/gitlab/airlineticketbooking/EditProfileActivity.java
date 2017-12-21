@@ -1,5 +1,6 @@
 package com.gitlab.airlineticketbooking;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,7 +17,8 @@ import android.widget.Toast;
 import com.gitlab.airlineticketbooking.data.ATBContract;
 import com.gitlab.airlineticketbooking.data.ATBDbHelper;
 
-public class EditProfileActivity extends AppCompatActivity {
+//allows user to edit the profile
+public class EditProfileActivity extends Activity {
 
     private Button btnSave;
     private EditText fname;
@@ -75,6 +77,7 @@ public class EditProfileActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //checks validations
                 int j=0;
                 if(fname.length()==0 || fname.getText().toString().startsWith(" ")){
                     fname.setError("Please enter your first name");

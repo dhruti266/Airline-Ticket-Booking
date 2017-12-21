@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.gitlab.airlineticketbooking.data.ATBContract;
 import com.gitlab.airlineticketbooking.data.ATBDbHelper;
-
+//login class that allow authenticate users to login
 public class LoginActivity extends Activity {
 
     private EditText editUsername;
@@ -36,6 +36,7 @@ public class LoginActivity extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                 int j=0;
+                //validation for username and password
                 if(editUsername.length()==0 || editUsername.getText().toString().startsWith(" ")){
                     editUsername.setError("Please enter email");
                 }else if(editPassword.length()==0 || editPassword.getText().toString().startsWith(" ")){
@@ -60,6 +61,7 @@ public class LoginActivity extends Activity {
 
 
 
+                    //if match found, then allows users to login else shows error message
                     if(cursor.getCount()!=0){
                         //String dbuname = cursor.getString(cursor.getColumnIndexOrThrow(HospitappContract.Doctor.COLUMN_NAME_USERNAME));
                         cursor.moveToFirst();

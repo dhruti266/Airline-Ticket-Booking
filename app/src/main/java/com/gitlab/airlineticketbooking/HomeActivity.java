@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+//dashboard where user can access to the app features
 public class HomeActivity extends Activity {
 
     private TextView txtWelcome;

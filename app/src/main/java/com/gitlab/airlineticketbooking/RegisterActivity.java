@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.gitlab.airlineticketbooking.data.ATBContract;
 import com.gitlab.airlineticketbooking.data.ATBDbHelper;
 
+//allows users to register for the app
 public class RegisterActivity extends Activity {
 
     private Button btnRegister;
@@ -46,6 +47,7 @@ public class RegisterActivity extends Activity {
             @Override
             public void onClick(View view) {
 
+                //checks validations
                 int j=0;
                 if(fname.length()==0 || fname.getText().toString().startsWith(" ")){
                     fname.setError("Please enter your first name");
@@ -64,6 +66,7 @@ public class RegisterActivity extends Activity {
                     int selectedId = radGender.getCheckedRadioButtonId();
                     radGenderBtn = (RadioButton) findViewById(selectedId);
 
+                    //checks for gender
                     if(radGenderBtn.getText().equals("male")) {
                         values.put(ATBContract.User.COLUMN_NAME_GENDER, ATBContract.User.GENDER_MALE);
                     }else{
@@ -81,6 +84,7 @@ public class RegisterActivity extends Activity {
                     values.put(ATBContract.User.COLUMN_NAME_DOB, dob.getText().toString());
                     values.put(ATBContract.User.COLUMN_NAME_PASSPORT_NUMBER, passport.getText().toString());
 
+                    // inserts new item to the database
                     long newRowID;
                     newRowID = db.insert(ATBContract.User.TABLE_NAME, null, values);
 

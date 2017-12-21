@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+//main activity class that allows user to login asd register
 public class MainActivity extends Activity {
 
+    //private variables
     private Button btnLogin;
     private Button btnRegister;
 
@@ -20,6 +21,7 @@ public class MainActivity extends Activity {
         btnLogin = (Button) findViewById(R.id.main_login_btn);
         btnRegister = (Button) findViewById(R.id.main_register_btn);
 
+        // onclick listener event opens new activity
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

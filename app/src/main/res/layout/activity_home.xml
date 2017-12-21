@@ -11,8 +11,9 @@
         android:id="@+id/txtHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home"
         android:layout_marginTop="10dp"
+        android:text="Home"
+        android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
         android:textSize="30dp" />
 
@@ -22,7 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welcome"
-        android:textSize="20dp"/>
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

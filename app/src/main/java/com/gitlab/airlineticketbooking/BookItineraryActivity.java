@@ -17,7 +17,7 @@ import com.gitlab.airlineticketbooking.data.ATBDbHelper;
 
 import java.util.Objects;
 
-
+//allows user to book the flight
 public class BookItineraryActivity extends Activity {
 
     private TextView bookingInfo, pageTitle;
@@ -43,6 +43,7 @@ public class BookItineraryActivity extends Activity {
         myHelper = new ATBDbHelper(BookItineraryActivity.this);
         myDb = myHelper.getWritableDatabase();
 
+        //retrieves data from database
         Cursor cursor = null ;
         cursor = myDb.rawQuery("SELECT * FROM " + ATBContract.Flight.TABLE_NAME
                 + " WHERE " + ATBContract.Flight._ID + "=" + flightId, null);
@@ -61,6 +62,7 @@ public class BookItineraryActivity extends Activity {
             }
         }
 
+        //if user clicks book a flight, then it will shows otherwise it will hide
         if(Objects.equals(hideBookBtn, "yes")){
             pageTitle.setText("Your Ticket");
             btnBook.setVisibility(View.GONE);
@@ -70,6 +72,7 @@ public class BookItineraryActivity extends Activity {
                public void onClick(View view) {
                    ContentValues values = new ContentValues();
 
+                   //on click, adds the selected flight to database and updates user profile
                    values.put(ATBContract.BookingInfo.COLUMN_NAME_FLIGHT_ID, flightId );
                    values.put(ATBContract.BookingInfo.COLUMN_NAME_USER_ID, userId);
                    long isInserted;
